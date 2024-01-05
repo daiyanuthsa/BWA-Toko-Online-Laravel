@@ -1,0 +1,138 @@
+.page-dashboard {
+  #page-content-wrapper {
+    background: #f5f5fb;
+    min-width: 100vw;
+  }
+  #sidebar-wrapper {
+    margin-top: 40px;
+    min-height: 100vh;
+    margin-left: -15rem;
+    transition: 0.3s ease-out;
+
+    .sidebar-heading {
+      padding: 0.75rem 1.25rem;
+      font-size: 1.2rem;
+    }
+    .list-group-item {
+      width: 15rem;
+    }
+  }
+
+  #wrapper {
+    &.toggled {
+      #sidebar-wrapper {
+        margin-left: 0px;
+      }
+    }
+  }
+
+  .navbar-store {
+    margin-top: 0px;
+    background-color: #f5f5fb;
+    box-shadow: 0px 4px 5px #cacad1;
+
+    @include media-breakpoint-up(md) {
+      background-color: transparent;
+      box-shadow: none;
+    }
+  }
+
+  .list-group-item {
+    border: 0;
+    color: #c5c5c5;
+    font-size: 16px;
+
+    &.active {
+      background: linear-gradient(
+        270deg,
+        rgba(255, 113, 88, 0.32) 2%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      border-right: 4px solid #ff7158;
+      color: #0c0d36;
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    #sidebar-wrapper {
+      margin-left: 0px;
+      margin-right: 0px;
+    }
+    #page-content-wrapper {
+      min-width: 0px;
+      width: 100%;
+    }
+    #wrapper {
+      &.toggled {
+        #sidebar-wrapper {
+          margin-left: -15rem;
+        }
+      }
+    }
+  }
+
+  .section-content {
+    margin-top: 80px;
+
+    @include media-breakpoint-up(md) {
+      margin-top: 20px;
+      margin-left: 20px;
+    }
+  }
+
+  h5 {
+    color: #0c0d36;
+    font-size: 18px;
+  }
+
+  .dashboard-title {
+    color: #0c0d36;
+    font-size: 24px;
+  }
+
+  .dashboard-subtitle {
+    color: #9191a9;
+    font-size: 16px;
+  }
+
+  .product-title {
+    color: #c5c5c5;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+  }
+
+  .product-subtitle {
+    color: #0c0d36;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    margin-bottom: 24px;
+    margin-top: 4px;
+  }
+
+  .nav-underline {
+    --bs-nav-underline-border-width: 3px;
+    .nav-link {
+      color: #9191a9;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+
+      &.active {
+        color: #0c0d36;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 500;
+      }
+    }
+  }
+  .gallery-container {
+    .delete-gallery {
+      display: block;
+      position: absolute;
+      top: -10px;
+      right: 0px;
+    }
+  }
+}
