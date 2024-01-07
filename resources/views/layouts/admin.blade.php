@@ -30,11 +30,17 @@
                 <div class="sidebar-heading text-center">
                     <img src="/images/admin.png" alt="" class="my-4" style="max-width: 150px" />
                 </div>
-                <a href="{{ route('admin-dashboard') }}" class="list-group-item list-group-item-action">
+                <a href="{{ route('admin-dashboard') }}"
+                    class="list-group-item list-group-item-action {{ request()->is('admin') ? 'active' : '' }}">
                     Dashboard
                 </a>
-                <a href="#" class="list-group-item list-group-item-action">
+                <a href="{{ route('product.index') }}"
+                    class="list-group-item list-group-item-action {{ request()->is('admin/product') ? 'active' : '' }}">
                     Products
+                </a>
+                <a href="{{ route('product-gallery.index') }}"
+                    class="list-group-item list-group-item-action {{ request()->is('admin/product-gallery*') ? 'active' : '' }}">
+                    Gallery
                 </a>
                 <a href="{{ route('category.index') }}"
                     class="list-group-item list-group-item-action {{ request()->is('admin/category*') ? 'active' : '' }}">
@@ -57,7 +63,7 @@
             <div id="page-content-wrapper">
                 <nav class="navbar navbar-expand-lg navbar-light navbar-store fixed-top " data-aos="fade-down">
                     <div class="container-fluid">
-                        <button class="btn btn-secondary d-md-none mr-auto mr-2" id="menu-toggle">
+                        <button class="btn btn-secondary d-md-none  mr-2" id="menu-toggle">
                             &laquo;Menu
                         </button>
                         <button class="navbar-toggler" type="button" data-toggle="collapse"
