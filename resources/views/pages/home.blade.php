@@ -75,7 +75,7 @@
                     @php
                         $aosdelayproduct = 0;
                     @endphp
-                    @forelse ($products as $product)
+                     @forelse ($products as $product)
                         <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up"
                             data-aos-delay="{{ $aosdelayproduct += 100 }}">
                             <a href="/details.html" class="component-products d-block">

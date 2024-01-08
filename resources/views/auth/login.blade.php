@@ -10,16 +10,21 @@
                     </div>
                     <div class="col-lg-5">
                         <h2>Belanja kebutuhan utama, <br />menjadi lebih mudah</h2>
-                        <form action="" class="mt-3">
+                        <form action="{{ route('login') }}" method="POST" class="mt-3">
+                            @csrf
                             <div class="form-group">
                                 <label>Email Address</label>
-                                <input type="email" class="form-control w-75" />
+                                <input type="email" id="email" class="form-control w-75" name="email"
+                                    :value="old('email')" required autofocus autocomplete="email" />
+                                <x-input-error :messages="$errors->get('email')" class="mt-2" />
+
                                 <label>Password</label>
-                                <input type="password" class="form-control w-75" />
+                                <input type="password" name="password" id="password" class="form-control w-75" required autocomplete="current-password" />
+                                <x-input-error :messages="$errors->get('password')" class="mt-2" />
                             </div>
-                            <a href="/dashboard.html" class="btn btn-success btn-block w-75 mt-4">Sign In to My Account
-                            </a>
-                            <a href="/register.html" class="btn btn-signup btn-block w-75 mt-2">Sign Up
+                            <button type="submit" class="btn btn-success btn-block w-75 mt-4">Sign In to My Account
+                            </button>
+                            <a href="{{ route('register') }}" class="btn btn-signup btn-block w-75 mt-2">Sign Up
                             </a>
                         </form>
                     </div>
