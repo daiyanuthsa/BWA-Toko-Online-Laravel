@@ -60,4 +60,7 @@ class RegisteredUserController extends Controller
 
         return redirect(RouteServiceProvider::HOME);
     }
+    public function check(Request $request){
+        return User::where('email', $request->email)->count() > 0 ? "Unalvailable" : "Available";
+    }
 }
