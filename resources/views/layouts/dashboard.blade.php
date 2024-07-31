@@ -72,7 +72,15 @@
                                         <a href="/dashboard.html" class="dropdown-item">Dashboard</a>
                                         <a href="/dashboard-account.html" class="dropdown-item">Settings</a>
                                         <div class="dropdown-divider"></div>
-                                        <a href="/index.html" class="dropdown-item">Logout</a>
+                                        <form method="POST" action="{{ route('logout') }}">
+                                            @csrf
+
+                                            <a class="dropdown-item text-danger" :href="route('logout')"
+                                                onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                                {{ __('Log Out') }}
+                                            </a>
+                                        </form>
                                     </div>
                                 </li>
                                 <li class="nav-item">

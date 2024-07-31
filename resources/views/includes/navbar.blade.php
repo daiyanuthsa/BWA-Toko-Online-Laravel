@@ -34,7 +34,7 @@
                     <li class="naf-item dropdown">
                         <a href="#" class="nav-link" id="navbarDropdown" role="button" data-toggle="dropdown">
                             <img src="/images/icon-user.png" alt="icon-user" class="rounded-circle mr-2 profile-picture" />
-                            Hi, Angga
+                            {{ Auth::user()->name }}
                         </a>
                         <div class="dropdown-menu">
                             <a href="{{ route('dashboard') }}" class="dropdown-item">Dashboard</a>
