@@ -58,7 +58,7 @@
                         </div>
                         <div class="col-lg-2">
                             @auth
-                                <form method="POST" action="#" enctype="multypart/form-data">
+                                <form method="POST" action="{{ route('detail-add-cart', $product->id) }}" enctype="multipart/form-data">
                                     @csrf
                                     <button type="submit" class="btn btn-success btn-block text-white px-4 mb-3">Add
                                         to Cart</button>
