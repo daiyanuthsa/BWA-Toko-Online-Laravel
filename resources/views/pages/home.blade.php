@@ -78,7 +78,7 @@
                      @forelse ($products as $product)
                         <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up"
                             data-aos-delay="{{ $aosdelayproduct += 100 }}">
-                            <a href="/details.html" class="component-products d-block">
+                            <a href="details/{{ $product->slug }}" class="component-products d-block">
                                 <div class="products-thumnail">
                                     <div class="products-image"
                                         style="
