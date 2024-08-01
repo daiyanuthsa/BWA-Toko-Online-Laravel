@@ -52,12 +52,22 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-8">
-                            <h1>Sofa Ternyaman</h1>
-                            <div class="owner">By Daiyan Uthsa</div>
-                            <div class="price">$1,409</div>
+                            <h1>{{ $product->name }}</h1>
+                            <div class="owner">By {{ $product->user->name }}</div>
+                            <div class="price">$ {{ number_format($product->price) }}</div>
                         </div>
                         <div class="col-lg-2">
-                            <a href="/cart.html" class="btn btn-success btn-block text-white px-4 mb-3">Add to Cart</a>
+                            @auth
+                                <form method="POST" action="#" enctype="multypart/form-data">
+                                    @csrf
+                                    <button type="submit" class="btn btn-success btn-block text-white px-4 mb-3">Add
+                                        to Cart</button>
+                                </form>
+                            @else
+                                <a href="{{ route('login') }}" class="btn btn-success btn-block text-white px-4 mb-3">Sign in to
+                                    add</a>
+                            @endauth
+
                         </div>
                     </div>
                 </div>
@@ -66,20 +76,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-12 col-lg-8">
-                            <p>
-                                The Nike Air Max 720 SE goes bigger than ever before with
-                                Nike's tallest Air unit yet for unimaginable, alal-day
-                                comfort. There's super breathable fabrics on the upper, while
-                                colours add a modern edge.
-                            </p>
-                            <p>
-                                Bring the past into the future with the Nike Air Max 2090, a
-                                bold look inspired by the DNA of the iconic Air Max 90.
-                                Brand-new Nike Air cushioning underfoot adds unparalleled
-                                comfort while transparent mesh and vibrantly coloured details
-                                on the upper are blended with timeless OG features for an
-                                edgy, modernised look.
-                            </p>
+                            {!! $product->description !!}
                         </div>
                     </div>
                 </div>
@@ -138,23 +135,14 @@
                 AOS.init();
             },
             data: {
-                activePhoto: 3,
-                photos: [{
-                        id: 1,
-                        url: "/images/product-details-1.jpg",
-                    },
-                    {
-                        id: 2,
-                        url: "/images/product-details-2.jpg",
-                    },
-                    {
-                        id: 3,
-                        url: "/images/product-details-3.jpg",
-                    },
-                    {
-                        id: 4,
-                        url: "/images/product-details-4.jpg",
-                    },
+                activePhoto: 0,
+                photos: [
+                    @foreach ($product->galleries as $gallery)
+                        {
+                            id: {{ $gallery->id }},
+                            url: "{{ Storage::url($gallery->photo) }}",
+                        },
+                    @endforeach
                 ],
             },
             methods: {
@@ -163,5 +151,6 @@
                 },
             },
         });
+        console.log(photos)
     </script>
 @endpush
